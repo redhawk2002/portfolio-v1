@@ -121,7 +121,8 @@ export default function ExperienceSection() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5001/api/sections/experience")
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5001";
+    fetch(`${API_URL}/api/sections/experience`)
       .then((res) => res.json())
       .then((data) => {
         if (data && data.items) {

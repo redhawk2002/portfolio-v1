@@ -45,8 +45,9 @@ export default function ChatWidget() {
     const newMessages: Message[] = [...messages, { role: "user", content: textToSubmit }];
     setMessages(newMessages);
 
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5001";
     try {
-      const response = await fetch("http://localhost:5001/api/chat", {
+      const response = await fetch(`${API_URL}/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: newMessages }),

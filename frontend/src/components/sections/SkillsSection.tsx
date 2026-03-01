@@ -80,7 +80,8 @@ export default function SkillsSection() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5001/api/sections/skills")
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5001";
+    fetch(`${API_URL}/api/sections/skills`)
       .then((res) => res.json())
       .then((data) => {
         if (data && data.items) {

@@ -38,8 +38,9 @@ export default function AdminDashboardPage() {
       return false;
     }
 
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5001";
     try {
-      const res = await fetch("http://localhost:5001/api/auth/verify", {
+      const res = await fetch(`${API_URL}/api/auth/verify`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) {
@@ -57,9 +58,10 @@ export default function AdminDashboardPage() {
     const isValid = await verifyAuth();
     if (!isValid) return;
 
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5001";
     try {
       const token = getToken();
-      const res = await fetch("http://localhost:5001/api/sections/admin/all", {
+      const res = await fetch(`${API_URL}/api/sections/admin/all`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -82,9 +84,10 @@ export default function AdminDashboardPage() {
     const token = getToken();
     setSaveStatus("Saving...");
 
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5001";
     try {
       const parsed = JSON.parse(editContent);
-      const res = await fetch(`http://localhost:5001/api/sections/items/${itemId}`, {
+      const res = await fetch(`${API_URL}/api/sections/items/${itemId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -108,8 +111,9 @@ export default function AdminDashboardPage() {
 
   const handleToggleVisibility = async (itemId: string, currentVisibility: boolean) => {
     const token = getToken();
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5001";
     try {
-      await fetch(`http://localhost:5001/api/sections/items/${itemId}`, {
+      await fetch(`${API_URL}/api/sections/items/${itemId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -128,8 +132,9 @@ export default function AdminDashboardPage() {
     
     const token = getToken();
     setSaveStatus("Deleting...");
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5001";
     try {
-      const res = await fetch(`http://localhost:5001/api/sections/items/${itemId}`, {
+      const res = await fetch(`${API_URL}/api/sections/items/${itemId}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -229,8 +234,9 @@ export default function AdminDashboardPage() {
                     onClick={async () => {
                       const token = getToken();
                       setSaveStatus("Creating...");
+                      const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5001";
                       try {
-                        const res = await fetch("http://localhost:5001/api/sections/items", {
+                        const res = await fetch(`${API_URL}/api/sections/items`, {
                           method: "POST",
                           headers: {
                             "Content-Type": "application/json",
