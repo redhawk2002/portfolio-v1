@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Section {
+  id           String        @id @default(uuid())
+  type         String        // e.g. 'hero', 'about', 'skills', 'projects', 'experience'
+  title        String?
+  subtitle     String?
+  config       Json?         @default("{}") // Layout, colors, animation type
+  displayOrder Int
+  isVisible    Boolean       @default(true)
+  items        SectionItem[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model SectionItem {
+  id           String   @id @default(uuid())
+  sectionId    String
+  section      Section  @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  content      Json     // Flexible JSON for specific section data (e.g. project details, skill level)
+  displayOrder Int
+  isVisible    Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+// Global Profile settings
+model Profile {
+  id             String   @id @default(uuid())
+  name           String
+  title          String
+  bio            String?
+  avatarUrl      String?
+  resumeUrl      String?
+  location       String?
+  email          String?
+  currentCompany String?
+  noticePeriod   String?
+  availability   String?  // e.g. 'Available for hire', 'Not looking'
+  updatedAt      DateTime @updatedAt
+}
+
+// Analytics and memory for the AI Agent
+model ChatLog {
+  id        String   @id @default(uuid())
+  sessionId String?
+  visitorIp String?
+  question  String
+  answer    String
+  createdAt DateTime @default(now())
+}
+
+// Contact form submissions
+model ContactMessage {
+  id        String   @id @default(uuid())
+  name      String
+  email     String
+  message   String
+  status    String   @default("PENDING") // 'PENDING', 'SENT', 'FAILED'
+  createdAt DateTime @default(now())
+}
