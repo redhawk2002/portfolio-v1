@@ -153,15 +153,15 @@ export default function SidebarNavigation() {
               initial={{ clipPath: "inset(0px calc(100% - 120px) calc(100% - 44px) 0px round 22px)" }}
               animate={{ clipPath: "inset(0px 0px 0px 0px round 24px)", transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } }}
               exit={{ clipPath: "inset(0px calc(100% - 120px) calc(100% - 44px) 0px round 22px)", transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.4 } }}
-              className="fixed top-6 left-6 bottom-6 w-[calc(100%-3rem)] md:top-10 md:left-10 md:bottom-10 md:w-[480px] bg-[#0f172a] z-50 flex flex-col rounded-3xl overflow-hidden border border-slate-700/30 shadow-2xl"
+              className="fixed top-6 left-6 w-[calc(100%-3rem)] md:top-10 md:left-10 md:w-[480px] min-h-[500px] h-auto pb-10 bg-[#0f172a] z-50 flex flex-col rounded-3xl overflow-hidden border border-slate-700/30 shadow-2xl"
             >
               {/* Close Button */}
-              <div className="flex justify-start mb-12 relative z-10">
+              <div className="flex justify-start mb-8 relative z-10 pt-10 px-8 md:px-12">
                 <NavTriggerButton isOpen={true} onClick={() => setIsOpen(false)} />
               </div>
 
               {/* Navigation Links */}
-              <nav className="flex flex-col gap-1 px-8 md:px-12 flex-1">
+              <nav className="flex flex-col justify-center gap-1 px-8 md:px-12 flex-1 my-auto">
                 {navLinks.map((link, i) => {
                   const isActive = pathname === link.href;
                   const isHovered = hoveredIndex === i;
