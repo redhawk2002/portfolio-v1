@@ -9,16 +9,13 @@ export default function HeroSection() {
   return (
     <section 
       id="hero" 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background"
     >
-      {/* Abstract White Liquid Pearl 3D Background */}
+      {/* 3D Globy animated background */}
       <MinimalistBlob />
 
-      {/* Indie Retro Grid Background Overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
-      
-      {/* Soft Center Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.06)_0%,transparent_60%)]" />
+      {/* Indie Retro Grid Background Overlay - Subdued for better reading */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#slate-800_1px,transparent_1px),linear-gradient(to_bottom,#slate-800_1px,transparent_1px)] bg-[size:60px_60px] opacity-[0.03] pointer-events-none z-0" />
 
       {/* Indian Minimalist Top-Down Decorative Line */}
       <IndianDecorativeLine />

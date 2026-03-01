@@ -4,6 +4,7 @@ import { useRef, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { MeshDistortMaterial, Sphere, Float } from '@react-three/drei';
 import * as THREE from 'three';
+import { motion } from 'framer-motion';
 
 function BlobMesh() {
   const meshRef = useRef<THREE.Mesh>(null);
@@ -69,7 +70,12 @@ function BlobMesh() {
 
 export default function MinimalistBlob() {
   return (
-    <div className="absolute inset-0 z-0 pointer-events-none fade-in">
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 3, delay: 7.5, ease: "easeOut" }}
+      className="absolute inset-0 z-0 pointer-events-none fade-in"
+    >
       <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
         {/* Increased light intensities for a stronger 'glow' */}
         <ambientLight intensity={1.8} />
@@ -79,6 +85,6 @@ export default function MinimalistBlob() {
         <BlobMesh />
       </Canvas>
       <div className="absolute inset-0 bg-slate-50/20 backdrop-blur-[1px] z-10 pointer-events-none" />
-    </div>
+    </motion.div>
   );
 }
