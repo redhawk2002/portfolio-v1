@@ -150,18 +150,18 @@ export default function SidebarNavigation() {
 
             {/* Side Drawer */}
             <motion.div
-              initial={{ clipPath: "inset(0px calc(100% - 120px) calc(100% - 44px) 0px round 22px)" }}
-              animate={{ clipPath: "inset(0px 0px 0px 0px round 24px)", transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } }}
-              exit={{ clipPath: "inset(0px calc(100% - 120px) calc(100% - 44px) 0px round 22px)", transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.4 } }}
-              className="fixed top-6 left-6 w-[calc(100%-3rem)] md:top-10 md:left-10 md:w-[480px] min-h-[500px] h-auto pb-10 bg-[#0f172a] z-50 flex flex-col rounded-3xl overflow-hidden border border-slate-700/30 shadow-2xl"
+              initial={{ clipPath: "inset(16px calc(100% - 136px) calc(100% - 60px) 16px round 22px)" }}
+              animate={{ clipPath: "inset(0px 0px 0px 0px round 32px)", transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } }}
+              exit={{ clipPath: "inset(16px calc(100% - 136px) calc(100% - 60px) 16px round 22px)", transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.4 } }}
+              className="fixed top-2 left-2 w-[calc(100%-1rem)] md:top-6 md:left-6 md:w-[480px] min-h-[500px] h-auto pb-10 bg-[#0f172a] z-50 flex flex-col rounded-[32px] overflow-hidden border border-slate-700/30 shadow-2xl"
             >
-              {/* Close Button - Positioned exactly where the open button was */}
-              <div className="absolute top-0 left-0">
+              {/* Close Button - 16px offset perfectly cancels out the Drawer upshift against the original button */}
+              <div className="absolute top-4 left-4">
                 <NavTriggerButton isOpen={true} onClick={() => setIsOpen(false)} />
               </div>
 
               {/* Navigation Links - Add top padding to account for the absolute button */}
-              <nav className="flex flex-col justify-center gap-1 px-8 md:px-12 flex-1 mt-16 pb-6">
+              <nav className="flex flex-col justify-center gap-1 px-10 md:px-14 flex-1 mt-20 pb-6">
                 {navLinks.map((link, i) => {
                   const isActive = pathname === link.href;
                   const isHovered = hoveredIndex === i;
