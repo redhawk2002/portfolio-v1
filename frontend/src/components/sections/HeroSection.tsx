@@ -24,7 +24,7 @@ export default function HeroSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.8, delay: 8.8, ease: "easeOut" }}
           className="inline-block glass px-4 py-2 rounded-full mb-8 z-10"
         >
           <span className="text-sm font-medium tracking-wider uppercase text-slate-500 flex items-center gap-2">
@@ -37,7 +37,7 @@ export default function HeroSection() {
           className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 text-slate-900 z-10"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+          transition={{ duration: 0.8, delay: 9.0, ease: "easeOut" }}
         >
           Sandeepan <span className="text-gradient-primary">Kalita</span>
         </motion.h1>
@@ -46,7 +46,7 @@ export default function HeroSection() {
           className="text-lg md:text-xl md:max-w-3xl text-slate-500 mb-12 leading-relaxed z-10"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          transition={{ duration: 0.8, delay: 9.2, ease: "easeOut" }}
         >
           In an era where AI writes code, syntax is a commodity. 
           I focus on what machines can&apos;t auto-generate: 
@@ -56,7 +56,7 @@ export default function HeroSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+          transition={{ duration: 0.8, delay: 9.4, ease: "easeOut" }}
           className="flex flex-col sm:flex-row gap-4 z-10"
         >
           <button className="bg-slate-900 text-white hover:bg-slate-800 active:scale-95 active:bg-slate-700 px-8 py-3 rounded-full font-medium transition-colors shadow-lg tracking-wide">

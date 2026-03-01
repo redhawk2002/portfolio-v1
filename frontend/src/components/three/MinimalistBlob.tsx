@@ -23,30 +23,70 @@ function BlobMesh() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  useFrame(() => {
+  useFrame(({ clock }) => {
     if (!meshRef.current || !materialRef.current) return;
 
+    const t = clock.elapsedTime;
     const mx = mouse.current.x;
     const my = mouse.current.y;
 
-    // Calculate distance from center to mouse
-    const distance = Math.sqrt(mx * mx + my * my);
+    let targetX = 0;
+    let targetY = 0;
+    let targetScale = 1;
+    let targetDistort = 0.3;
+    let targetSpeed = 1.0;
 
-    // 1. Magnetic pull towards the cursor (very subtle movement)
-    const targetX = mx * 0.2; // Extremely reduced
-    const targetY = my * 0.2;
-    
-    // Smoothly interpolate current position towards target position
-    meshRef.current.position.x += (targetX - meshRef.current.position.x) * 0.02;
-    meshRef.current.position.y += (targetY - meshRef.current.position.y) * 0.02;
+    // Cinematic Storytelling Sequence
+    if (t < 7.0) {
+      // Phase 0: Hidden/Waiting for Splash Screen
+      targetScale = 0.01;
+      targetDistort = 1.0;
+      targetSpeed = 4.0;
+      targetY = -3; // Start from way below the viewport
+    } else if (t < 9.0) {
+      // Phase 1: The Birth (7.0s - 9.0s) -> Emerges from the deep, rising and expanding violently
+      const progress = Math.min((t - 7.0) / 2.0, 1);
+      const easeOutQuint = 1 - Math.pow(1 - progress, 5);
+      
+      targetScale = 0.01 + easeOutQuint * 1.5; // Swells up massive
+      targetDistort = 0.9; // Highly chaotic and fluid
+      targetSpeed = 4.0; // Fast boiling effect
+      targetY = -3 + easeOutQuint * 3; // Rises to perfect center
+    } else if (t < 11.0) {
+      // Phase 2: Stabilization (9.0s - 11.0s) -> Calms down directly as the Hero Text appears
+      const progress = Math.min((t - 9.0) / 2.0, 1);
+      const easeInOut = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 2) / 2;
 
-    // 2. Increase distortion and speed the closer the mouse is
-    const targetDistort = 0.3 + (distance * 0.05); // Barely distorts when moused over
-    const targetSpeed = 1.2 + (distance * 0.4);    // Barely speeds up
+      targetScale = 1.5 - easeInOut * 0.5; // Shrinks perfectly back to 1.0 resting size
+      targetDistort = 0.9 - easeInOut * 0.6; // Calms down its shape
+      targetSpeed = 4.0 - easeInOut * 3.0; // Slows down its boiling
+    } else {
+      // Phase 3: Interactive Eternity -> Peacefully follows cursor
+      targetScale = 1.0;
+      const distance = Math.sqrt(mx * mx + my * my);
+      targetDistort = 0.3 + (distance * 0.08); // Barely distorts when moused over
+      targetSpeed = 1.0 + (distance * 0.5);    // Barely speeds up
 
-    // Smoothly animate the material properties
-    materialRef.current.distort += (targetDistort - materialRef.current.distort) * 0.02;
-    materialRef.current.speed += (targetSpeed - materialRef.current.speed) * 0.02;
+      targetX = mx * 0.3; // Gentle parralax follow
+      targetY = my * 0.3;
+    }
+
+    // Apply the mathematical sequence to the 3D mesh
+    if (t < 11.0) {
+      // Hard frame-by-frame lock during cinematic sequences
+      meshRef.current.scale.set(targetScale, targetScale, targetScale);
+      meshRef.current.position.x = targetX;
+      meshRef.current.position.y = targetY;
+    } else {
+      // Smooth springy physics during interactive phase
+      meshRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.05);
+      meshRef.current.position.x += (targetX - meshRef.current.position.x) * 0.02;
+      meshRef.current.position.y += (targetY - meshRef.current.position.y) * 0.02;
+    }
+
+    // Always smoothly interpolate material properties for gorgeous visual transitions
+    materialRef.current.distort += (targetDistort - materialRef.current.distort) * 0.05;
+    materialRef.current.speed += (targetSpeed - materialRef.current.speed) * 0.05;
   });
 
   return (
@@ -71,9 +111,9 @@ function BlobMesh() {
 export default function MinimalistBlob() {
   return (
     <motion.div 
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 3, delay: 7.5, ease: "easeOut" }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.5, delay: 7.0, ease: "easeOut" }}
       className="absolute inset-0 z-0 pointer-events-none fade-in"
     >
       <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
