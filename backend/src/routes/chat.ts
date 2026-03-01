@@ -24,8 +24,11 @@ Here is the core information you know about Sandeepan:
 
 EXPERIENCE:
 1. System Engineer at Tata Consultancy Services (11/2024 - Present):
-   - Client: TCSiON (large-scale digital examination system for JEE Main).
-   - Supporting lakhs of concurrent candidates with high availability, scalability, and secure assessment delivery.
+   - Contributed to building a transaction-level monitoring framework from scratch using Java, MySQL, and an internal job scheduler.
+   - Developed a configurable silent-period module supporting one-time and recurring schedules, reducing alert fatigue by 40%.
+   - Re-architected the analytics pipeline by replacing a SQL ETL datamart with Kafka–Cassandra architecture to improve scalability.
+   - Implemented severity-based email alerting with CSV reports for detailed incident insights.
+   - Implemented admin-bypass audit logging in the AEC module to capture candidate-level overrides.
 2. Project Intern at IIT Guwahati (05/2023 - 07/2023):
    - Built a voice-assisted web application for banking intent detection using the Web Speech API.
    - Fine-tuned BERT Base Uncased on the BANKING77 dataset for NLP.

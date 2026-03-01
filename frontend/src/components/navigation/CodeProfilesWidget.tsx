@@ -6,17 +6,17 @@ import { Github, Linkedin, Code2, ChefHat, BookOpen, CodeXml, Terminal } from "l
 import Link from "next/link";
 
 const socialLinks = [
-  { id: "github", icon: Github, label: "GitHub", href: "https://github.com/", color: "hover:bg-slate-800 hover:text-white" },
-  { id: "linkedin", icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com/", color: "hover:bg-blue-600 hover:text-white" },
+  { id: "github", icon: Github, label: "GitHub", href: "https://github.com/redhawk2002", color: "hover:bg-slate-800 hover:text-white" },
+  { id: "linkedin", icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/sandeepankalita/", color: "hover:bg-blue-600 hover:text-white" },
   { 
     id: "coding", 
     icon: Terminal, 
     label: "Coding Profiles", 
     color: "hover:bg-purple-600 hover:text-white",
     subLinks: [
-      { id: "leetcode", icon: Code2, label: "LeetCode", href: "https://leetcode.com/", color: "hover:bg-orange-500 hover:text-white" },
-      { id: "tuf", icon: BookOpen, label: "TakeYouForward", href: "https://takeuforward.org/", color: "hover:bg-red-500 hover:text-white" },
-      { id: "codechef", icon: ChefHat, label: "CodeChef", href: "https://www.codechef.com/", color: "hover:bg-amber-600 hover:text-white" },
+      { id: "leetcode", icon: Code2, label: "LeetCode", href: "https://leetcode.com/u/kalitasandeepan/", color: "hover:bg-orange-500 hover:text-white" },
+      { id: "tuf", icon: BookOpen, label: "TakeYouForward", href: "https://takeuforward.org/profile/RedHawk1804", color: "hover:bg-red-500 hover:text-white" },
+      { id: "codechef", icon: ChefHat, label: "CodeChef", href: "https://www.codechef.com/users/red_hawk18", color: "hover:bg-amber-600 hover:text-white" },
     ]
   },
 ];

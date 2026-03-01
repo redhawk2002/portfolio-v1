@@ -55,7 +55,11 @@ const EXPERIENCES = [
     date: "11/2024 - Present",
     status: "ACTIVE",
     details: [
-      "Currently working as a remote System Engineer."
+      "Contributed to building a transaction-level monitoring framework from scratch using Java, MySQL, and an internal job scheduler, enabling hourly visibility across multiple applications and faster detection of transaction failures.",
+      "Developed a configurable silent-period module supporting one-time and recurring schedules (weekly, monthly, etc.), reducing alert fatigue by 40%.",
+      "Re-architected the analytics pipeline by replacing a SQL ETL datamart with Kafka–Cassandra architecture to improve scalability.",
+      "Implemented severity-based email alerting with CSV reports for detailed incident insights.",
+      "Implemented admin-bypass audit logging in the AEC module to capture candidate-level overrides applied by admins even when a global bypass was active, improving traceability and monitoring during assessments."
     ]
   }
 ];
