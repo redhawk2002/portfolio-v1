@@ -5,12 +5,12 @@ import SplashScreen from "@/components/navigation/SplashScreen";
 import ChatWidget from "@/components/chat/ChatWidget";
 
 export const metadata: Metadata = {
-  title: "Sandeepan Kalita | Software Engineer — Architecture · Systems · AI",
+  title: "SandeepanK - Portfolio",
   description: "Software Engineer specializing in system design, backend architecture, and full-stack development. B.Tech CSSE from KIIT University. Currently building enterprise-scale systems at TCS.",
   keywords: ["Sandeepan Kalita", "Software Engineer", "System Design", "Full Stack Developer", "Java", "Spring Boot", "Next.js", "Portfolio"],
   authors: [{ name: "Sandeepan Kalita" }],
   openGraph: {
-    title: "Sandeepan Kalita | Software Engineer",
+    title: "SandeepanK - Portfolio",
     description: "Software Engineer specializing in system design, backend architecture, and full-stack development.",
     type: "website",
     locale: "en_IN",
