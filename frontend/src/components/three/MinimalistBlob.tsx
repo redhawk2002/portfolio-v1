@@ -37,27 +37,27 @@ function BlobMesh() {
     let targetSpeed = 1.0;
 
     // Cinematic Storytelling Sequence
-    if (t < 7.0) {
+    if (t < 3.5) {
       // Phase 0: Hidden/Waiting for Splash Screen
       targetScale = 0.01;
       targetDistort = 1.0;
       targetSpeed = 4.0;
       targetY = -3; // Start from way below the viewport
-    } else if (t < 8.5) {
-      // Phase 1: The Birth (7.0s - 8.5s) -> Erupts right as the Yellow Line drops
-      const progress = Math.min((t - 7.0) / 1.5, 1);
+    } else if (t < 5.0) {
+      // Phase 1: The Birth (3.5s - 5.0s) -> Erupts right as the Yellow Line drops
+      const progress = Math.min((t - 3.5) / 1.5, 1);
       const easeOutQuint = 1 - Math.pow(1 - progress, 5);
       
-      targetScale = 0.01 + easeOutQuint * 1.1; // Only swells to 1.1 to avoid excessive shrinking later
+      targetScale = 0.01 + easeOutQuint * 1.05; // Barely swells to 1.05 to eliminate noticeable shrinking
       targetDistort = 0.9; // Highly chaotic and fluid
       targetSpeed = 4.0; // Fast boiling effect
       targetY = -3 + easeOutQuint * 3; // Rises to perfect center
-    } else if (t < 9.5) {
-      // Phase 2: Stabilization (8.5s - 9.5s) -> Calms as the Splash Screen slides away
-      const progress = Math.min((t - 8.5) / 1.0, 1);
+    } else if (t < 6.0) {
+      // Phase 2: Stabilization (5.0s - 6.0s) -> Calms as the Splash Screen slides away
+      const progress = Math.min((t - 5.0) / 1.0, 1);
       const easeInOut = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 2) / 2;
 
-      targetScale = 1.11 - easeInOut * 0.11; // Barely shrinks back to 1.0 resting size
+      targetScale = 1.06 - easeInOut * 0.06; // Essentially no shrinking, just settles
       targetDistort = 0.9 - easeInOut * 0.6; // Calms down its shape
       targetSpeed = 4.0 - easeInOut * 3.0; // Slows down its boiling
     } else {
@@ -72,7 +72,7 @@ function BlobMesh() {
     }
 
     // Apply the mathematical sequence to the 3D mesh
-    if (t < 9.5) {
+    if (t < 6.0) {
       // Hard frame-by-frame lock during cinematic sequences
       meshRef.current.scale.set(targetScale, targetScale, targetScale);
       meshRef.current.position.x = targetX;
@@ -113,7 +113,7 @@ export default function MinimalistBlob() {
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 1.5, delay: 7.0, ease: "easeOut" }}
+      transition={{ duration: 1.5, delay: 3.5, ease: "easeOut" }}
       className="absolute inset-0 z-0 pointer-events-none fade-in"
     >
       <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>

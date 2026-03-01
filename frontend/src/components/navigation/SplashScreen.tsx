@@ -18,7 +18,7 @@ export default function SplashScreen() {
       setTimeout(() => {
         sessionStorage.setItem("hasVisited", "true");
         setShowSplash(false);
-      }, 8500); // 8.5s for the narrative sequence to show and hold
+      }, 4500); // Drastically reduced to 4.5s for a faster, punchier load
     }
   }, []);
 
@@ -50,7 +50,7 @@ export default function SplashScreen() {
             <motion.h2
               initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
               animate={{ opacity: [0, 1, 1, 0], filter: ["blur(10px)", "blur(0px)", "blur(0px)", "blur(10px)"], y: [10, 0, 0, -10] }}
-              transition={{ duration: 2.5, times: [0, 0.2, 0.8, 1], ease: "easeInOut" }}
+              transition={{ duration: 1.5, times: [0, 0.2, 0.8, 1], ease: "easeInOut" }}
               className="absolute text-lg md:text-xl font-serif text-amber-500/70 italic tracking-widest"
             >
               &quot;Syntax is a commodity.&quot;
@@ -60,7 +60,7 @@ export default function SplashScreen() {
             <motion.h2
               initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
               animate={{ opacity: [0, 1, 1, 0], filter: ["blur(10px)", "blur(0px)", "blur(0px)", "blur(10px)"], y: [10, 0, 0, -10] }}
-              transition={{ duration: 2.5, delay: 2.5, times: [0, 0.2, 0.8, 1], ease: "easeInOut" }}
+              transition={{ duration: 1.5, delay: 1.5, times: [0, 0.2, 0.8, 1], ease: "easeInOut" }}
               className="absolute text-lg md:text-xl font-serif text-amber-500/70 italic tracking-widest"
             >
               &quot;Resilient architecture is an art.&quot;
@@ -70,7 +70,7 @@ export default function SplashScreen() {
             <motion.h1
               initial={{ opacity: 0, scale: 0.95, letterSpacing: "0.1em", filter: "blur(8px)" }}
               animate={{ opacity: [0, 1, 1], scale: [0.95, 1, 1], letterSpacing: ["0.1em", "0.3em", "0.3em"], filter: ["blur(8px)", "blur(0px)", "blur(0px)"] }}
-              transition={{ duration: 3, delay: 5.0, times: [0, 0.4, 1], ease: "easeOut" }}
+              transition={{ duration: 2, delay: 3.0, times: [0, 0.4, 1], ease: "easeOut" }}
               className="absolute text-2xl md:text-5xl font-serif text-amber-500 uppercase whitespace-nowrap"
             >
               Rooted in Logic
@@ -80,7 +80,7 @@ export default function SplashScreen() {
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: [0, 1, 1], y: [10, 0, 0] }}
-              transition={{ duration: 1.5, delay: 5.5, ease: "easeOut" }}
+              transition={{ duration: 1.2, delay: 3.2, ease: "easeOut" }}
               className="absolute mt-24 text-xs md:text-sm font-mono text-amber-100/40 tracking-[0.4em] uppercase whitespace-nowrap"
             >
               Built to Scale
@@ -92,7 +92,7 @@ export default function SplashScreen() {
             <motion.div
               initial={{ scaleX: 0, originX: 0 }}
               animate={{ scaleX: [0, 0.3, 0.7, 1] }}
-              transition={{ duration: 7.8, ease: "easeInOut", delay: 0.2 }}
+              transition={{ duration: 3.8, ease: "easeInOut", delay: 0.2 }}
               className="h-full bg-amber-500/50 shadow-[0_0_10px_rgba(245,158,11,0.5)]"
             />
           </div>
@@ -101,7 +101,7 @@ export default function SplashScreen() {
           <motion.div 
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "30vh", opacity: 1 }}
-            transition={{ duration: 1.5, delay: 7.0, ease: "easeInOut" }}
+            transition={{ duration: 1.0, delay: 3.5, ease: "easeInOut" }}
             className="absolute bottom-0 w-[1px] bg-gradient-to-b from-amber-500/50 to-transparent"
           />
         </motion.div>
