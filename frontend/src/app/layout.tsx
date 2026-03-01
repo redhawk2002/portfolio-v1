@@ -33,7 +33,7 @@ export default function RootLayout({
       >
         <SplashScreen />
         {/* Global Inner Frame with Solid Mask for overflowing text */}
-        <div className="fixed inset-4 border border-slate-300 pointer-events-none z-40 rounded-xl ring-[16px] ring-background" />
+        <div className="fixed inset-4 border border-slate-300 pointer-events-none z-30 rounded-xl ring-[16px] ring-background" />
         
         {/* Global Navigation that persists across page changes */}
         <SidebarNavigation />
