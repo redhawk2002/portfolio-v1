@@ -45,28 +45,23 @@ export default function SplashScreen() {
             className="absolute top-0 w-[1px] bg-gradient-to-b from-transparent via-amber-500/30 to-transparent"
           />
 
-          <div className="flex flex-col items-center justify-center relative w-full h-[300px] z-10">
-            {/* Phase 1: Philosophy Part 1 */}
-            <motion.h2
-              initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
-              animate={{ opacity: [0, 1, 1, 0], filter: ["blur(10px)", "blur(0px)", "blur(0px)", "blur(10px)"], y: [10, 0, 0, -10] }}
-              transition={{ duration: 1.5, times: [0, 0.2, 0.8, 1], ease: "easeInOut" }}
-              className="absolute text-lg md:text-xl font-serif text-amber-500/70 italic tracking-widest"
-            >
-              &quot;Syntax is a commodity.&quot;
-            </motion.h2>
+          <div className="flex flex-col items-center justify-center relative w-full h-[300px] z-10 w-full px-4 text-center">
+            {[
+              { text: "Syntax is a commodity.", delay: 0 },
+              { text: "Resilient architecture is an art.", delay: 1.5 }
+            ].map((item, idx) => (
+              <motion.h2
+                key={idx}
+                initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
+                animate={{ opacity: [0, 1, 1, 0], filter: ["blur(10px)", "blur(0px)", "blur(0px)", "blur(10px)"], y: [10, 0, 0, -10] }}
+                transition={{ duration: 1.5, delay: item.delay, times: [0, 0.2, 0.8, 1], ease: "easeInOut" }}
+                className="absolute text-lg md:text-xl font-serif text-amber-500/70 italic tracking-widest w-full"
+              >
+                &quot;{item.text}&quot;
+              </motion.h2>
+            ))}
 
-            {/* Phase 2: Philosophy Part 2 */}
-            <motion.h2
-              initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
-              animate={{ opacity: [0, 1, 1, 0], filter: ["blur(10px)", "blur(0px)", "blur(0px)", "blur(10px)"], y: [10, 0, 0, -10] }}
-              transition={{ duration: 1.5, delay: 1.5, times: [0, 0.2, 0.8, 1], ease: "easeInOut" }}
-              className="absolute text-lg md:text-xl font-serif text-amber-500/70 italic tracking-widest"
-            >
-              &quot;Resilient architecture is an art.&quot;
-            </motion.h2>
-
-            {/* Phase 3: The Conclusion */}
+            {/* The Conclusion */}
             <motion.h1
               initial={{ opacity: 0, scale: 0.95, letterSpacing: "0.1em", filter: "blur(8px)" }}
               animate={{ opacity: [0, 1, 1], scale: [0.95, 1, 1], letterSpacing: ["0.1em", "0.3em", "0.3em"], filter: ["blur(8px)", "blur(0px)", "blur(0px)"] }}
