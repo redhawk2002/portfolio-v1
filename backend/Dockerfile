@@ -13,6 +13,7 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN npx prisma generate
+RUN npx tsc prisma/seed.ts --esModuleInterop
 RUN npm run build
 
 # Production
@@ -29,4 +30,4 @@ COPY package*.json ./
 EXPOSE 5001
 ENV PORT=5001
 
-CMD ["sh", "-c", "npx prisma db push --accept-data-loss && npx prisma db seed && node dist/index.js"]
+CMD ["sh", "-c", "npx prisma db push --accept-data-loss && node prisma/seed.js && node dist/index.js"]
