@@ -116,7 +116,7 @@ export default function ContactWidget() {
               initial={{ x: "100%", opacity: 0 }}
               animate={{ x: 0, opacity: 1, transition: { type: "spring", damping: 25, stiffness: 200 } }}
               exit={{ x: "100%", opacity: 0, transition: { duration: 0.3 } }}
-              className="fixed top-4 right-4 bottom-4 w-[calc(100%-2rem)] sm:w-[400px] md:w-[450px] bg-white rounded-2xl shadow-2xl border border-slate-100 z-50 flex flex-col overflow-hidden"
+              className="fixed top-4 right-4 w-[calc(100%-2rem)] sm:w-[400px] md:w-[450px] h-auto max-h-[calc(100vh-2rem)] bg-white rounded-2xl shadow-2xl border border-slate-100 z-50 flex flex-col overflow-hidden"
             >
               {/* Header */}
               <div className="flex items-center justify-between p-6 md:p-8 border-b border-slate-100 bg-slate-50/50">

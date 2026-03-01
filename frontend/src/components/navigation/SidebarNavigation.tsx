@@ -155,13 +155,13 @@ export default function SidebarNavigation() {
               exit={{ clipPath: "inset(0px calc(100% - 120px) calc(100% - 44px) 0px round 22px)", transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.4 } }}
               className="fixed top-6 left-6 w-[calc(100%-3rem)] md:top-10 md:left-10 md:w-[480px] min-h-[500px] h-auto pb-10 bg-[#0f172a] z-50 flex flex-col rounded-3xl overflow-hidden border border-slate-700/30 shadow-2xl"
             >
-              {/* Close Button */}
-              <div className="flex justify-start mb-8 relative z-10 pt-10 px-8 md:px-12">
+              {/* Close Button - Positioned exactly where the open button was */}
+              <div className="absolute top-0 left-0">
                 <NavTriggerButton isOpen={true} onClick={() => setIsOpen(false)} />
               </div>
 
-              {/* Navigation Links */}
-              <nav className="flex flex-col justify-center gap-1 px-8 md:px-12 flex-1 my-auto">
+              {/* Navigation Links - Add top padding to account for the absolute button */}
+              <nav className="flex flex-col justify-center gap-1 px-8 md:px-12 flex-1 mt-16 pb-6">
                 {navLinks.map((link, i) => {
                   const isActive = pathname === link.href;
                   const isHovered = hoveredIndex === i;
