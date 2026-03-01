@@ -19,8 +19,17 @@ const PROJECTS = [
     description: "Automated vacation responses and label organization using the official APIs.",
     tags: ["Node.js", "Express.js", "Gmail APIs", "OAuth2"],
     live: "",
-    github: "https://github.com",
+    github: "https://github.com/redhawk2002/GmailAutoReplier",
     color: "from-red-500/20 to-amber-500/20"
+  },
+  {
+    title: "Intent Detection for Bank Query",
+    category: "Machine Learning / NLP",
+    description: "Voice-assisted web application for banking intent detection, fine-tuning BERT Base Uncased on the BANKING77 dataset.",
+    tags: ["Python", "BERT", "NLP", "Web Speech API"],
+    live: "",
+    github: "https://github.com/redhawk2002/IntentDetectionForBankQuery",
+    color: "from-emerald-500/20 to-teal-500/20"
   },
   {
     title: "Aesthetic Portfolio V1",
@@ -28,7 +37,7 @@ const PROJECTS = [
     description: "Highly immersive developer portfolio focused on 'First Principles' architecture and modern cinematic UX.",
     tags: ["React", "Next.js", "Framer Motion", "Tailwind CSS"],
     live: "#",
-    github: "https://github.com",
+    github: "https://github.com/redhawk2002/PortfolioWithAI",
     color: "from-slate-500/20 to-slate-400/20"
   }
 ];

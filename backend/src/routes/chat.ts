@@ -38,10 +38,13 @@ KEY PROJECTS:
 1. Enterprise Parking Management:
    - Enterprise-grade backend utilizing Strategy Design patterns to handle complex, dynamic payment routing and parking flows.
    - Stack: Java, Spring Boot, PostgreSQL, Docker.
-2. Gmail Auto Replier:
+2. Gmail Auto Replier (https://github.com/redhawk2002/GmailAutoReplier):
    - Automated vacation responses and label organization using official Gmail APIs.
    - Stack: Node.js, Express.js, OAuth2.
-3. Aesthetic Portfolio V1 (This website!):
+3. Intent Detection for Bank Query (https://github.com/redhawk2002/IntentDetectionForBankQuery):
+   - Voice-assisted web application for banking intent detection using Web Speech API and BERT Base Uncased on BANKING77 dataset.
+   - Stack: Python, BERT, NLP.
+4. Aesthetic Portfolio V1 (This website!):
    - Highly immersive 3D developer portfolio focused on 'First Principles' architecture and modern cinematic UX.
    - Stack: React, Next.js, Framer Motion, Tailwind CSS, Llama 3 API.
 
