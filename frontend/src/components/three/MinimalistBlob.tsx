@@ -43,21 +43,21 @@ function BlobMesh() {
       targetDistort = 1.0;
       targetSpeed = 4.0;
       targetY = -3; // Start from way below the viewport
-    } else if (t < 9.0) {
-      // Phase 1: The Birth (7.0s - 9.0s) -> Emerges from the deep, rising and expanding violently
-      const progress = Math.min((t - 7.0) / 2.0, 1);
+    } else if (t < 8.5) {
+      // Phase 1: The Birth (7.0s - 8.5s) -> Erupts right as the Yellow Line drops
+      const progress = Math.min((t - 7.0) / 1.5, 1);
       const easeOutQuint = 1 - Math.pow(1 - progress, 5);
       
-      targetScale = 0.01 + easeOutQuint * 1.5; // Swells up massive
+      targetScale = 0.01 + easeOutQuint * 1.1; // Only swells to 1.1 to avoid excessive shrinking later
       targetDistort = 0.9; // Highly chaotic and fluid
       targetSpeed = 4.0; // Fast boiling effect
       targetY = -3 + easeOutQuint * 3; // Rises to perfect center
-    } else if (t < 11.0) {
-      // Phase 2: Stabilization (9.0s - 11.0s) -> Calms down directly as the Hero Text appears
-      const progress = Math.min((t - 9.0) / 2.0, 1);
+    } else if (t < 9.5) {
+      // Phase 2: Stabilization (8.5s - 9.5s) -> Calms as the Splash Screen slides away
+      const progress = Math.min((t - 8.5) / 1.0, 1);
       const easeInOut = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 2) / 2;
 
-      targetScale = 1.5 - easeInOut * 0.5; // Shrinks perfectly back to 1.0 resting size
+      targetScale = 1.11 - easeInOut * 0.11; // Barely shrinks back to 1.0 resting size
       targetDistort = 0.9 - easeInOut * 0.6; // Calms down its shape
       targetSpeed = 4.0 - easeInOut * 3.0; // Slows down its boiling
     } else {
@@ -72,7 +72,7 @@ function BlobMesh() {
     }
 
     // Apply the mathematical sequence to the 3D mesh
-    if (t < 11.0) {
+    if (t < 9.5) {
       // Hard frame-by-frame lock during cinematic sequences
       meshRef.current.scale.set(targetScale, targetScale, targetScale);
       meshRef.current.position.x = targetX;
