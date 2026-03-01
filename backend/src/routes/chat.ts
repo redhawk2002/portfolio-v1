@@ -44,7 +44,7 @@ KEY PROJECTS:
 3. Intent Detection for Bank Query (https://github.com/redhawk2002/IntentDetectionForBankQuery):
    - Voice-assisted web application for banking intent detection using Web Speech API and BERT Base Uncased on BANKING77 dataset.
    - Stack: Python, BERT, NLP.
-4. Aesthetic Portfolio V1 (This website!):
+4. Aesthetic Portfolio V1 (https://github.com/redhawk2002/portfolio-v1):
    - Highly immersive 3D developer portfolio focused on 'First Principles' architecture and modern cinematic UX.
    - Stack: React, Next.js, Framer Motion, Tailwind CSS, Llama 3 API.
 

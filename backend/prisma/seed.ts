@@ -37,7 +37,7 @@ const PROJECTS = [
     description: "Highly immersive developer portfolio focused on 'First Principles' architecture and modern cinematic UX.",
     tags: ["React", "Next.js", "Framer Motion", "Tailwind CSS"],
     live: "#",
-    github: "https://github.com/redhawk2002/PortfolioWithAI",
+    github: "https://github.com/redhawk2002/portfolio-v1",
     color: "from-slate-500/20 to-slate-400/20"
   }
 ];
